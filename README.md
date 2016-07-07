@@ -142,3 +142,9 @@ public class AbcService {
     public EchoService echoService;
 }
 ```
+
+### 6. 打包
+
+> 可以直接执行Server或者Client启动
+
+> 可以通过mvn clean package 打包成可执行的uber-jar文件
