@@ -37,13 +37,13 @@ mvn clean install
  ```
 
  * maven插件用于打包成可执行的uber-jar文件,添加以下插件(这里一定要加载需要打包成jar的mudule的pom中)
- ```
+```
 <plugin>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
     <version>1.3.6.RELEASE</version>
 </plugin>
-  ```
+```
 
 ### 4. 发布服务
 
