@@ -47,6 +47,18 @@ mvn clean install
 
 ### 4. 发布服务
 
+服务接口:
+
+```
+package cn.teaey.sprintboot.test;
+
+public interface EchoService {
+    String echo(String str);
+}
+
+```
+
+
 在application.properties添加Dubbo的版本信息和客户端超时信息,如下:
 ```
 spring.dubbo.application.name=provider
@@ -60,21 +72,31 @@ spring.dubbo.scan=cn.teaey.sprintboot.test
 在Spring Application的application.properties中添加spring.dubbo.scan即可支持Dubbo服务发布,其中scan表示要扫描的package目录
 * spring boot启动
 ```
+package cn.teaey.sprintboot.test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 @SpringBootApplication
 public class Server {
-
     public static void main(String[] args) {
         SpringApplication.run(Server.class, args);
     }
+}
+
 ```
 * 编写你的Dubbo服务,只需要添加要发布的服务实现上添加 @Service ,如下
 ```
-@Service(version = "1.0.0")
-public class ServiceImpl implements ServiceA {
+package cn.teaey.sprintboot.test;
 
-    @Override
-    public String test() {
-        return "hello";
+import com.alibaba.dubbo.config.annotation.Service;
+
+@Service(version = "1.0.0")
+public class EchoServerImpl implements EchoService {
+
+    public String echo(String str) {
+        System.out.println(str);
+        return str;
     }
 }
 
@@ -91,19 +113,32 @@ spring.dubbo.scan=cn.teaey.sprintboot.test
 
 * spring boot启动
 ```
+package cn.teaey.sprintboot.test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
 @SpringBootApplication
 public class Client {
     public static void main(String[] args) {
-        SpringApplication.run(Client.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(Client.class, args);
+        AbcService bean = run.getBean(AbcService.class);
+        System.out.println(bean.echoService.echo("abccc"));
     }
 }
+
 ```
 * 引用Dubbo服务,只需要添加要发布的服务实现上添加 @Reference ,如下:
 ```
-@Component
-public class BarAction {
+package cn.teaey.sprintboot.test;
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AbcService {
     @Reference(version = "1.0.0")
-    private ServiceA fooService;
+    public EchoService echoService;
 }
 ```
