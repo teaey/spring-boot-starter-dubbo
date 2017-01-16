@@ -2,13 +2,13 @@
 
 ## 如何使用
 
-### 1. clone 代码
+### 1. clone 代码（可选，已经发布到中央仓库，可以直接依赖中央仓库的稳定版本）
 
 ```
 git clone git@github.com:teaey/spring-boot-starter-dubbo.git
 ```
 
-### 2. 编译安装
+### 2. 编译安装（可选）
 
 ```
 cd spring-boot-starter-dubbo
@@ -28,11 +28,14 @@ mvn clean install
  ```
 
 * 在Spring Boot项目的pom.xml中添加以下依赖:
+
+根据实际情况依赖最新版本
+
 ```
  <dependency>
      <groupId>io.dubbo.springboot</groupId>
      <artifactId>spring-boot-starter-dubbo</artifactId>
-     <version>1.0.0-SNAPSHOT</version>
+     <version>1.0.0</version>
  </dependency>
  ```
 

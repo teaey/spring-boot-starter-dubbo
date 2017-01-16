@@ -1,17 +1,10 @@
 package io.dubbo.springboot;
 
+import com.alibaba.dubbo.config.spring.AnnotationBean;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.event.ContextStartedEvent;
-import org.springframework.context.event.ContextStoppedEvent;
 import org.springframework.core.env.Environment;
-
-import com.alibaba.dubbo.config.spring.AnnotationBean;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DubboConfigurationApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
