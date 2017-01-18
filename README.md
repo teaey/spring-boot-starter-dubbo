@@ -1,5 +1,8 @@
 #spring-boot-start-dubbo
 
+spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程序。使dubbo开发变得如此简单。
+
+
 ## 如何使用
 
 ### 1. clone 代码（可选，已经发布到中央仓库，可以直接依赖中央仓库的稳定版本）
