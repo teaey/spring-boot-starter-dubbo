@@ -1,6 +1,7 @@
 package io.dubbo.springboot;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.MonitorConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class DubboAutoConfiguration {
     @Bean
     public ProtocolConfig requestProtocolConfig() {
         return dubboProperties.getProtocol();
+    }
+
+    @Bean
+    public MonitorConfig requestMonitorConfig() {
+        return dubboProperties.getMonitor();
     }
 
 
