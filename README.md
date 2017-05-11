@@ -1,5 +1,8 @@
 # spring-boot-start-dubbo
 
+
+spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程序。使dubbo开发变得如此简单。
+
 让你可以使用`spring-boot`的方式开发`dubbo`程序。使`dubbo`开发变得如此简单。
 
 ## 如何使用
