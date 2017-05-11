@@ -1,6 +1,7 @@
 package io.dubbo.springboot;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.MonitorConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -15,6 +16,8 @@ public class DubboProperties {
     private RegistryConfig registry;
 
     private ProtocolConfig protocol;
+
+    private MonitorConfig monitor;
 
     public String getScan() {
         return scan;
@@ -48,4 +51,11 @@ public class DubboProperties {
         this.protocol = protocol;
     }
 
+    public MonitorConfig getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(MonitorConfig monitor) {
+        this.monitor = monitor;
+    }
 }
