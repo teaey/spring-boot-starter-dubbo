@@ -163,7 +163,14 @@ public class AbcService {
 }
 ```
 
-### 6. 打包
+### 6. `monitor`监控中心
+* 在`application.properties`添加`monitor`监控中心配置(服务端和消费端相同)，如下：
+
+```properties
+spring.dubbo.monitor.protocol=registry
+```
+
+### 7. 打包
 
 - 可以直接执行`Server`或者`Client`启动
 - 可以通过`mvn clean package`打包成可执行的`uber-jar`文件
