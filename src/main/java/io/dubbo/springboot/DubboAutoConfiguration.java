@@ -18,22 +18,38 @@ public class DubboAutoConfiguration {
 
     @Bean
     public ApplicationConfig requestApplicationConfig() {
-        return dubboProperties.getApplication();
+    	ApplicationConfig applicationConfig = dubboProperties.getApplication();
+    	if(applicationConfig == null){
+    		applicationConfig = new ApplicationConfig();
+    	}
+        return applicationConfig;
     }
 
     @Bean
     public RegistryConfig requestRegistryConfig() {
-        return dubboProperties.getRegistry();
+    	RegistryConfig registryConfig = dubboProperties.getRegistry();
+    	if(registryConfig == null){
+    		registryConfig = new RegistryConfig();
+    	}
+        return registryConfig;
     }
 
     @Bean
     public ProtocolConfig requestProtocolConfig() {
-        return dubboProperties.getProtocol();
+    	ProtocolConfig protocolConfig = dubboProperties.getProtocol();
+    	if(protocolConfig == null){
+    		protocolConfig = new ProtocolConfig();
+    	}
+        return protocolConfig;
     }
 
     @Bean
     public MonitorConfig requestMonitorConfig() {
-        return dubboProperties.getMonitor();
+    	MonitorConfig monitorConfig = dubboProperties.getMonitor();
+    	if(monitorConfig == null){
+    		monitorConfig = new MonitorConfig();
+    	}
+        return monitorConfig;
     }
 
 
