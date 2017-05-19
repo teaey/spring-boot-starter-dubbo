@@ -9,6 +9,7 @@ import org.springframework.context.event.ContextClosedEvent;
  * @author xiaofei.wxf(teaey)
  * @since 0.0.0
  */
+@SuppressWarnings("rawtypes")
 public class DubboHolderListener implements ApplicationListener {
     private static Thread holdThread;
     private static Boolean running = Boolean.FALSE;
@@ -41,6 +42,14 @@ public class DubboHolderListener implements ApplicationListener {
                 holdThread.interrupt();
                 holdThread = null;
             }
+        }
+    }
+    
+    public static void stopApplicationContext(Boolean stop){
+    	running = stop.booleanValue();
+    	if (null != holdThread) {
+            holdThread.interrupt();
+            holdThread = null;
         }
     }
 }
