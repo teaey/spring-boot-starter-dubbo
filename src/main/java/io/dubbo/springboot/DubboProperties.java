@@ -1,8 +1,12 @@
 package io.dubbo.springboot;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.ConsumerConfig;
+import com.alibaba.dubbo.config.MethodConfig;
+import com.alibaba.dubbo.config.ModuleConfig;
 import com.alibaba.dubbo.config.MonitorConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
+import com.alibaba.dubbo.config.ProviderConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -18,6 +22,14 @@ public class DubboProperties {
     private ProtocolConfig protocol;
 
     private MonitorConfig monitor;
+    
+    private ProviderConfig provider;
+    
+    private ModuleConfig module;
+    
+    private MethodConfig method;
+    
+    private ConsumerConfig consumer;
 
     public String getScan() {
         return scan;
@@ -58,4 +70,36 @@ public class DubboProperties {
     public void setMonitor(MonitorConfig monitor) {
         this.monitor = monitor;
     }
+
+	public ProviderConfig getProvider() {
+		return provider;
+	}
+
+	public void setProvider(ProviderConfig provider) {
+		this.provider = provider;
+	}
+
+	public ModuleConfig getModule() {
+		return module;
+	}
+
+	public void setModule(ModuleConfig module) {
+		this.module = module;
+	}
+
+	public MethodConfig getMethod() {
+		return method;
+	}
+
+	public void setMethod(MethodConfig method) {
+		this.method = method;
+	}
+
+	public ConsumerConfig getConsumer() {
+		return consumer;
+	}
+
+	public void setConsumer(ConsumerConfig consumer) {
+		this.consumer = consumer;
+	}
 }
