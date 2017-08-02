@@ -1,5 +1,7 @@
 package io.dubbo.springboot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -11,6 +13,8 @@ import org.springframework.context.event.ContextClosedEvent;
  */
 @SuppressWarnings("rawtypes")
 public class DubboHolderListener implements ApplicationListener {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DubboHolderListener.class);
+
     private static Thread holdThread;
     private static Boolean running = Boolean.FALSE;
 
@@ -23,7 +27,9 @@ public class DubboHolderListener implements ApplicationListener {
                 holdThread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println(Thread.currentThread().getName());
+                        if (LOGGER.isTraceEnabled()) {
+                            LOGGER.trace(Thread.currentThread().getName());
+                        }
                         while (running && !Thread.currentThread().isInterrupted()) {
                             try {
                                 Thread.sleep(2000);
