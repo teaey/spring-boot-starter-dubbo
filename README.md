@@ -28,7 +28,7 @@ mvn clean install
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.3.6.RELEASE</version>
+    <version>1.5.8.RELEASE</version>
 </parent>
  ```
 
@@ -50,7 +50,7 @@ mvn clean install
 <plugin>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
-    <version>1.3.6.RELEASE</version>
+    <version>1.5.8.RELEASE</version>
 </plugin>
 ```
 
