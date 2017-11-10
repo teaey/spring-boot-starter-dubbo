@@ -20,6 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <spring-boot.version>1.5.8.RELEASE</spring-boot.version>
         <dubbo.version>2.5.7</dubbo.version>
         <version.compiler-plugin>3.5.1</version.compiler-plugin>
         <version.source-plugin>2.2.1</version.source-plugin>
@@ -63,7 +64,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${project.parent.version}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
