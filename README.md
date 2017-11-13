@@ -10,7 +10,7 @@ spring-boot-start-dubbo，让你可以使用spring-boot的方式开发dubbo程�
 ### 1. `clone`代码（可选，已经发布到中央仓库，可以直接依赖[中央仓库的稳定版本](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22io.dubbo.springboot%22%20AND%20a%3A%22spring-boot-starter-dubbo%22)）
 
 ```sh
-git clone git@github.com:teaey/spring-boot-starter-dubbo.git
+git clone git@github.com:dubbo/spring-boot-starter-dubbo.git
 ```
 
 ### 2. 编译安装（可选）
@@ -28,7 +28,7 @@ mvn clean install
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.3.6.RELEASE</version>
+    <version>1.5.8.RELEASE</version>
 </parent>
  ```
 
@@ -50,7 +50,7 @@ mvn clean install
 <plugin>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
-    <version>1.3.6.RELEASE</version>
+    <version>1.5.8.RELEASE</version>
 </plugin>
 ```
 
