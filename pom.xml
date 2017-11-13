@@ -22,6 +22,8 @@
 
         <spring-boot.version>1.5.8.RELEASE</spring-boot.version>
         <dubbo.version>2.5.7</dubbo.version>
+        <zkclient.version>0.10</zkclient.version>
+
         <version.compiler-plugin>3.5.1</version.compiler-plugin>
         <version.source-plugin>2.2.1</version.source-plugin>
         <version.javadoc-plugin>2.9.1</version.javadoc-plugin>
@@ -54,6 +56,25 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkclient.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
@@ -69,6 +90,7 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <profiles>
