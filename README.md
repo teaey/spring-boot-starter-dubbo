@@ -20,7 +20,7 @@ cd spring-boot-starter-dubbo
 mvn clean install
 ```
 
-### 3. 修改`maven`配置文件（可以参考样例[`spring-boot-starter-dubbo-sample`](https://github.com/dubbo/spring-boot-starter-dubbo-sample)）
+### 3. 修改`maven`配置文件（可以参考样例[`spring-boot-starter-dubbo-sample`](https://github.com/teaey/spring-boot-starter-dubbo-sample)）
 
 * 在`spring boot`项目的`pom.xml`增加`parent`:
 
