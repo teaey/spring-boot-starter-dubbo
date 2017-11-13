@@ -12,7 +12,7 @@
     <version>1.0.0</version>
 
     <packaging>jar</packaging>
-    <url>https://github.com/teaey/spring-boot-starter-dubbo</url>
+    <url>https://github.com/dubbo/dubbo-spring-boot-starter</url>
     <name>spring-boot-starter-dubbo</name>
 
     <properties>
@@ -21,7 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <spring-boot.version>1.5.3.RELEASE</spring-boot.version>
-        <dubbo.version>2.5.4-SNAPSHOT</dubbo.version>
+        <dubbo.version>2.5.7</dubbo.version>
         <zkclient.version>0.10</zkclient.version>
 
         <version.compiler-plugin>3.5.1</version.compiler-plugin>
@@ -31,19 +31,53 @@
     </properties>
 
     <developers>
+
         <developer>
             <name>teaey(Xiaofei.Wu)</name>
             <email>masfay@163.com</email>
             <url>teaey.github.com</url>
             <timezone>+8</timezone>
         </developer>
+
+        <developer>
+            <id>mercyblitz</id>
+            <name>Mercy</name>
+            <email>mercyblitz@gmail.com</email>
+            <url>https://github.com/mercyblitz</url>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+
     </developers>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
     <dependencies>
+
+        <!-- Spring Boot dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -55,6 +89,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
@@ -74,23 +109,9 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>spring-boot-configuration-processor</artifactId>
-        	<optional>true</optional>
-        </dependency>
+
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <profiles>
         <profile>
