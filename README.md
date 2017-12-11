@@ -38,9 +38,9 @@ mvn clean install
 
 ```xml
  <dependency>
-    <groupId>io.dubbo.springboot</groupId>
-    <artifactId>spring-boot-starter-dubbo</artifactId>
-    <version>1.0.0</version>
+    <groupId>com.alibaba.boot</groupId>
+    <artifactId>dubbo-spring-boot-starter</artifactId>
+    <version>${revision}</version>
  </dependency>
  ```
 
