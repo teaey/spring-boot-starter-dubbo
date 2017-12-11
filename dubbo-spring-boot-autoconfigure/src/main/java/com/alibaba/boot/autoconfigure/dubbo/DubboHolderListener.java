@@ -1,4 +1,4 @@
-package io.dubbo.springboot;
+package com.alibaba.boot.autoconfigure.dubbo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

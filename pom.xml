@@ -1,44 +1,52 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.6.RELEASE</version>
-    </parent>
 
     <groupId>com.alibaba.boot</groupId>
-    <artifactId>dubbo-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <artifactId>dubbo-spring-boot-project</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
 
-    <packaging>jar</packaging>
-    <url>https://github.com/dubbo/dubbo-spring-boot-starter</url>
-    <name>dubbo-spring-boot-starter</name>
+    <name>Dubbo Spring Boot Project</name>
+    <description>Dubbo Spring Boot Project</description>
+    <url>https://github.com/dubbo/dubbo-spring-boot-project</url>
 
     <properties>
-        <java.version>1.7</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <spring-boot.version>1.5.3.RELEASE</spring-boot.version>
-        <dubbo.version>2.5.7</dubbo.version>
-        <zkclient.version>0.10</zkclient.version>
-
-        <version.compiler-plugin>3.5.1</version.compiler-plugin>
-        <version.source-plugin>2.2.1</version.source-plugin>
-        <version.javadoc-plugin>2.9.1</version.javadoc-plugin>
-        <version.maven-gpg-plugin>1.5</version.maven-gpg-plugin>
+        <revision>1.0.0</revision>
     </properties>
 
-    <developers>
+    <modules>
+        <module>dubbo-spring-boot-parent</module>
+        <module>dubbo-spring-boot-autoconfigure</module>
+        <module>dubbo-spring-boot-starter</module>
+        <module>dubbo-spring-boot-samples</module>
+        <module>dubbo-spring-boot-actuator</module>
+    </modules>
 
+
+    <organization>
+        <name>Alibaba Group.</name>
+        <url>http://www.alibabagroup.com/en/global/home</url>
+    </organization>
+
+    <scm>
+        <url>https://github.com/dubbo/dubbo-spring-boot-project</url>
+        <connection>scm:git:git:////github.com/dubbo/dubbo-spring-boot-project.git</connection>
+        <developerConnection>scm:git:ssh://git@//github.com/dubbo/dubbo-spring-boot-project.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/dubbo/dubbo-spring-boot-project/issues</url>
+    </issueManagement>
+
+    <developers>
         <developer>
             <name>teaey(Xiaofei.Wu)</name>
             <email>masfay@163.com</email>
             <url>teaey.github.com</url>
             <timezone>+8</timezone>
         </developer>
-
         <developer>
             <id>mercyblitz</id>
             <name>Mercy</name>
@@ -48,136 +56,6 @@
                 <role>Developer</role>
             </roles>
         </developer>
-
     </developers>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-
-    <dependencies>
-
-        <!-- Spring Boot dependencies -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>${dubbo.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.101tec</groupId>
-            <artifactId>zkclient</artifactId>
-            <version>${zkclient.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>log4j</artifactId>
-                    <groupId>log4j</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>slf4j-log4j12</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-    </dependencies>
-
-
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${version.compiler-plugin}</version>
-                        <configuration>
-                            <source>${java.version}</source>
-                            <target>${java.version}</target>
-                            <compilerVersion>${java.version}</compilerVersion>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>${version.source-plugin}</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${version.javadoc-plugin}</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${version.maven-gpg-plugin}</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
 </project>
